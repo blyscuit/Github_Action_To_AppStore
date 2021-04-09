@@ -36,19 +36,6 @@ jobs:
       run: bundle exec fastlane matchCI
       env:
         MATCH_PASSWORD: ${{ secrets.MATCH_PASS }}
-
-    - uses: actions/cache@v2
-      id: cocoapodCache
-      with:
-        path: Pods
-        key: ${{ runner.os }}-pods-${{ hashFiles('**/Podfile.lock') }}
-        restore-keys: |
-          ${{ runner.os }}-pods-
-
-    - name: Install Pods Dependencies
-      run: |
-        bundle exec pod install
-      shell: bash
       
     - name: Build App and Distibute to Firebase
       run: bundle exec fastlane beta
