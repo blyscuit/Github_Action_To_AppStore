@@ -52,3 +52,5 @@ jobs:
       
     - name: Build App and Distibute to Firebase
       run: bundle exec fastlane beta
+      env:
+        FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD: ${{ secrets.FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD }}
