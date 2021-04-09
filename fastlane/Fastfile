@@ -36,13 +36,18 @@ platform :ios do
 
   desc "Push a new beta build to TestFlight"
   lane :beta do
-    api_key = app_store_connect_api_key(
-      key_id: ENV["APPLE_KEY_ID"],
-      issuer_id: ENV["APPLE_ISSUER_ID"],
-      key_content: ENV["APPLE_KEY_CONTENT"]
-    )
+    # api_key = app_store_connect_api_key(
+    #   key_id: ENV["APPLE_KEY_ID"],
+    #   issuer_id: ENV["APPLE_ISSUER_ID"],
+    #   key_content: ENV["APPLE_KEY_CONTENT"]
+    # )
     build_app(scheme: "GithubActionAppStore")
-    upload_to_testflight(api_key: api_key)
+    # upload_to_testflight(api_key: api_key)
+
+    upload_to_testflight(
+      skip_waiting_for_build_processing: true,
+      apple_id: "blysxaye@icloud.com"
+    )
   end
 
   desc "Push a new beta build to TestFlight"
