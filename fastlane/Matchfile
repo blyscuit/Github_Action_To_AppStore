@@ -3,5 +3,3 @@ git_url("git@github.com:blyscuit/Github_Action_AppStore_match.git")
 storage_mode("git")
 
 force_for_new_devices(true)
-
-username("blysxaye@icloud.com")
