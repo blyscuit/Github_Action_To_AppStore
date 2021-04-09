@@ -18,6 +18,14 @@ default_platform(:ios)
 platform :ios do
   desc "Match"
   lane :matchCI do
+    create_keychain(
+      name: "action_keychain",
+      password: "action_keychain_password"
+      default_keychain: true,
+      unlock: true,
+      timeout: 3600,
+      lock_when_sleeps: true
+    )
     match(
       type: "appstore",
       keychain_name: "action_keychain",
