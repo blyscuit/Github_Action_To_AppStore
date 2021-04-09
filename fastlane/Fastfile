@@ -16,15 +16,20 @@
 default_platform(:ios)
 
 platform :ios do
-  desc "Push a new beta build to TestFlight"
-  lane :beta do
+  desc "Match"
+  lane :matchCI do
     match(
       type: "appstore",
       keychain_name: "action_keychain",
       keychain_password: "action_keychain_password",
-      # readonly: true
+      readonly: true
     )
+  end
+
+  desc "Push a new beta build to TestFlight"
+  lane :beta do
     build_app(scheme: "GithubActionAppStore")
     upload_to_testflight
   end
+
 end
