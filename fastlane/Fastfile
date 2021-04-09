@@ -20,7 +20,7 @@ platform :ios do
   lane :matchCI do
     create_keychain(
       name: "action_keychain",
-      password: "action_keychain_password"
+      password: "action_keychain_password",
       default_keychain: true,
       unlock: true,
       timeout: 3600,
